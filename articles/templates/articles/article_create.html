@@ -1,0 +1,21 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+  <script>tinymce.init({ selector:'textarea' });</script>
+
+  <!--<textarea>Next, get a free Tiny Cloud API key!</textarea>-->
+    <div class="create-article">
+        <h2>Create an Awesome New Article</h2>
+        <form class="site-form" action="{% url 'articles:create' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Create">
+        </form>
+    </div>
+
+  
+
+
+    <script src="/static/slugify.js"></script>
+{% endblock %}
